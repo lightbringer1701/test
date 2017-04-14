@@ -19,6 +19,14 @@
 #define ID_MENU_12	122
 #define ID_MENU_13	123
 #define ID_MENU_14	124
+#define ID_MENU_15	125
+#define ID_MENU_16	126
+
+#define QUESHEIGHT	100
+#define	STARTFREEID	4000
+
+#define	FONTHEIGHT	16
+
 using namespace std;
 
 class Ques {
@@ -26,6 +34,8 @@ class Ques {
 		int id;
 		int h;
 		HWND BtnDel;
+		HWND EditTitle;
+		
 		Ques(HWND WND, HINSTANCE HINST, int ID, int height);
 		~Ques();
 };
@@ -34,3 +44,8 @@ LRESULT APIENTRY MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 
 Ques **AddQues(Ques **array, int size, int id, HWND wnd, HINSTANCE hinst);
 Ques **DeleteQues(Ques **array, int size, int index, HWND wnd, HINSTANCE hinst);
+
+int **AddInt(int **array, int size, int newint);
+int **DeleteInt(int **array, int size, int index);
+
+HFONT GetNewFont();

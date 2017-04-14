@@ -1,7 +1,7 @@
 #include "main.h"
 
 HWND		MainWnd;
-int			MainWndWeith = 640;
+int			MainWndWeith = 800;
 int			MainWndHeight = 720;
 HINSTANCE	hinst;
 
@@ -21,7 +21,7 @@ int APIENTRY WinMain(HINSTANCE hCurrentInst, HINSTANCE hPreviousInst, LPSTR lpsz
     wndClass.lpszClassName = "win";
     RegisterClass(&wndClass);
 	
-	MainWnd = CreateWindow("win", "Test (server)",
+	MainWnd = CreateWindow("win", "Server (Initialization mode)",
 	WS_OVERLAPPED | WS_SYSMENU | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_CAPTION | WS_VSCROLL | WS_MINIMIZEBOX,
 	CW_USEDEFAULT, CW_USEDEFAULT, MainWndWeith, MainWndHeight,
 	NULL, NULL, hCurrentInst, NULL);
@@ -47,7 +47,10 @@ int APIENTRY WinMain(HINSTANCE hCurrentInst, HINSTANCE hPreviousInst, LPSTR lpsz
 		AppendMenu(hPopMenuTest, MF_SEPARATOR, (int)ID_MENU_12, "");
 		AppendMenu(hPopMenuTest, MF_STRING | MF_DISABLED, (int)ID_MENU_13, "Save");
 		AppendMenu(hPopMenuTest, MF_STRING | MF_DISABLED, (int)ID_MENU_14, "Save As");
+		AppendMenu(hPopMenuTest, MF_SEPARATOR, (int)ID_MENU_15, "");
+		AppendMenu(hPopMenuTest, MF_STRING | MF_DISABLED, (int)ID_MENU_16, "New Question (F2)");
 	}
+	
 	DrawMenuBar(MainWnd);
 	SetMenu(MainWnd, MainMenu);
 	SetMenu(MainWnd, hPopMenuServer);
